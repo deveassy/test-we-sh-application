@@ -1,11 +1,15 @@
 import * as React from "react";
 import styled from "styled-components";
-import { Text } from "react-native";
+import { Text, Button } from "react-native";
 
 export default function AlbumScreen({ navigation }) {
   return (
     <Container>
       <Text>Album Screen입니다.</Text>
+      <Button
+        title="Details Button"
+        onPress={() => navigation.navigate("Details")}
+      />
     </Container>
   );
 }
