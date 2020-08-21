@@ -16,6 +16,7 @@ function DetailsScreen() {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>Details Screen입니다. test중이에요.</Text>
+      <Ionicons name="ios-alert" size={12} color="blue" />
     </View>
   );
 }
@@ -26,7 +27,6 @@ function MainStackScreen() {
   return (
     <MainStack.Navigator>
       <MainStack.Screen name="Main" component={MainScreen} />
-      <MainStack.Screen name="Details" component={DetailsScreen} />
     </MainStack.Navigator>
   );
 }
@@ -48,6 +48,7 @@ function CalendarStackScreen() {
   return (
     <CalendarStack.Navigator>
       <CalendarStack.Screen name="Calendar" component={CalendarScreen} />
+      <MainStack.Screen name="Details" component={DetailsScreen} />
     </CalendarStack.Navigator>
   );
 }
@@ -58,6 +59,7 @@ function WishListStackScreen() {
   return (
     <WishListStack.Navigator>
       <WishListStack.Screen name="WishList" component={WishListScreen} />
+      <MainStack.Screen name="Details" component={DetailsScreen} />
     </WishListStack.Navigator>
   );
 }
@@ -68,6 +70,7 @@ function LetterStackScreen() {
   return (
     <LetterStack.Navigator>
       <LetterStack.Screen name="Letter" component={LetterScreen} />
+      <MainStack.Screen name="Details" component={DetailsScreen} />
     </LetterStack.Navigator>
   );
 }
@@ -76,16 +79,29 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer style={{ backgroundColor: "#999" }}>
+    <NavigationContainer>
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
             if (route.name === "Main") {
-              iconName = focused ? "" : "";
+              iconName = focused ? "ios-contacts" : "ios-contacts";
+            } else if (route.name === "Album") {
+              iconName = focused ? "md-images" : "md-images";
+            } else if (route.name === "Calendar") {
+              iconName = focused ? "md-calendar" : "ios-calendar";
+            } else if (route.name === "WishList") {
+              iconName = focused ? "ios-heart" : "ios-heart-empty";
+            } else if (route.name === "Letter") {
+              iconName = focused ? "ios-mail-open" : "ios-mail";
             }
+            return <Ionicons name={iconName} size={size} color={color} />;
           },
         })}
+        tabBarOptions={{
+          activeTintColor: "tomato",
+          inactiveTintColor: "gray",
+        }}
       >
         <Tab.Screen name="Main" component={MainStackScreen} />
         <Tab.Screen name="Album" component={AlbumStackScreen} />

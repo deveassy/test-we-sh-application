@@ -1,16 +1,15 @@
 import * as React from "react";
 import styled from "styled-components";
-import { ImageBackground, Button } from "react-native";
+import { Image } from "react-native";
 
-export default function MainScreen({ navigation }) {
+export default function MainScreen() {
+  let imageName = require("../../assets/picture.JPG");
   return (
     <Container>
       <MainText>WE'SH의 메인스크린입니다.</MainText>
-      <MainText>마땅한 커플사진을 아직 찾지 못했어요...ㅠㅠ</MainText>
-      <Button
-        title="Details Button"
-        onPress={() => navigation.navigate("Details")}
-      />
+      <PictureContainer>
+        <Image source={imageName} style={{ width: 50, height: 50 }} />
+      </PictureContainer>
     </Container>
   );
 }
@@ -20,9 +19,20 @@ const Container = styled.View`
   position: relative;
   align-items: center;
   justify-content: center;
-  background-color: #faf3dd;
 `;
 
 const MainText = styled.Text`
   font-size: 15px;
 `;
+
+const PictureContainer = styled.View`
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin: 10px;
+  border: 2px solid #f9d56e;
+`;
+// const OurPicture = styled.Image`
+//   width: 20px;
+//   height: 20px;
+// `;
