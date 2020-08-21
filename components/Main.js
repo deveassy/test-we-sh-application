@@ -1,14 +1,12 @@
 import * as React from "react";
 import styled from "styled-components";
-import { Image } from "react-native";
 
 export default function MainScreen() {
-  let imageName = require("../../assets/picture.JPG");
   return (
     <Container>
-      <MainText>WE'SH의 메인스크린입니다.</MainText>
+      <MainText>1840 days</MainText>
       <PictureContainer>
-        <Image source={imageName} style={{ width: 50, height: 50 }} />
+        <OurPicture source={require("../assets/ours.png")} />
       </PictureContainer>
     </Container>
   );
@@ -22,17 +20,17 @@ const Container = styled.View`
 `;
 
 const MainText = styled.Text`
-  font-size: 15px;
+  font-size: 35px;
+  font-weight: 800;
+  color: #848ccf;
 `;
 
 const PictureContainer = styled.View`
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  margin: 10px;
-  border: 2px solid #f9d56e;
+  margin: 30px 10px 20px;
 `;
-// const OurPicture = styled.Image`
-//   width: 20px;
-//   height: 20px;
-// `;
+const OurPicture = styled.Image`
+  width: 330px;
+  height: 450px;
+`;
