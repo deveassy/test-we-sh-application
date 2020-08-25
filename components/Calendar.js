@@ -6,6 +6,7 @@ import {
   Agenda,
   LocaleConfig,
 } from "react-native-calendars";
+import { AntDesign } from "@expo/vector-icons";
 
 LocaleConfig.locales["en"] = {
   monthNames: [
@@ -51,6 +52,10 @@ LocaleConfig.locales["en"] = {
 
 LocaleConfig.defaultLocale = "en";
 
+function Arrow() {
+  return <AntDesign name="right" size={15} color="skyblue" />;
+}
+
 export default function CalendarScreen() {
   return (
     <Container>
@@ -81,16 +86,38 @@ export default function CalendarScreen() {
           disableArrowLeft={false}
           disableArrowRight={false}
           disableAllTouchEventsForDisabledDays={true}
-          markedDates={{
-            "2020-08-16": {
-              selected: true,
-              marked: true,
-              selectedColor: "skyblue",
-            },
-            "2020-08-17": { marked: true },
-            "2020-08-18": { marked: true, dotColor: "red", activeOpacity: 0 },
-            // "2020-08-19": { disabled: true, disableTouchEvent: true },
-          }}
+          // markedDates={{
+          //   "2020-08-16": {
+          //     selected: true,
+          //     marked: true,
+          //     selectedColor: "skyblue",
+          //   },
+          //   "2020-08-17": { marked: true },
+          //   "2020-08-18": { marked: true, dotColor: "red", activeOpacity: 0 },
+          //   // "2020-08-19": { disabled: true, disableTouchEvent: true },
+          // }}
+          // markingType={"period"}
+          // markedDates={{
+          //   "2020-08-01": { marked: true, dotColor: "#50cebb" },
+          //   "2020-08-02": { marked: true, dotColor: "#50cebb" },
+          //   "2020-08-21": {
+          //     startingDay: true,
+          //     color: "#50cebb",
+          //     textColor: "white",
+          //   },
+          //   "2020-08-22": { color: "#70d7c7", textColor: "white" },
+          //   "2020-08-23": {
+          //     color: "#70d7c7",
+          //     textColor: "white",
+          //     marked: true,
+          //     dotColor: "white",
+          //   },
+          //   "2020-08-24": {
+          //     endingDay: true,
+          //     color: "#50cebb",
+          //     textColor: "white",
+          //   },
+          // }}
         />
       </CalendarContainer>
     </Container>
