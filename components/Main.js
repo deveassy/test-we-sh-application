@@ -3,12 +3,19 @@ import styled from "styled-components";
 import { FontAwesome } from "@expo/vector-icons";
 
 export default function MainScreen() {
+  const todayData = new Date();
+  todayData.setHours(0);
+  todayData.setMinutes(0);
+  todayData.setSeconds(0, 0);
+
+  const anniversaryData = new Date(2015, 8, 9);
+  const differenceData =
+    (todayData - anniversaryData) / (1000 * 60 * 60 * 24) + 31 + 1;
   return (
     <Container>
       <DdayContainer>
         <FontAwesome name="heartbeat" size={35} color="#ee6f57" />
-        <MainText>1840</MainText>
-        {/* <FontAwesome name="" size="" color="" /> */}
+        <MainText>{differenceData}</MainText>
       </DdayContainer>
       <PictureContainer>
         <OurPicture source={require("../assets/ours.png")} />
