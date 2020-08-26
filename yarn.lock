@@ -4064,6 +4064,11 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "^1.2.5"
 
+moment@2.24.0:
+  version "2.24.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
+  integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
+
 moment@^2.24.0:
   version "2.27.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.27.0.tgz#8bff4e3e26a236220dfe3e36de756b6ebaa0105d"
@@ -4598,6 +4603,14 @@ react-native-appearance@~0.3.3:
     invariant "^2.2.4"
     use-subscription "^1.0.0"
 
+react-native-calendario@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-calendario/-/react-native-calendario-2.1.0.tgz#bc96209ef57ce8b988972945b24bbce208a1f6bd"
+  integrity sha512-D94MGyc2p/rSzCJZ48U3NzP7x/V1rNBN5WDWLCtM/Bx+vprvOxMCaFSnzyow99KgrWbeXn7aJJ3vNdvobKfBLQ==
+  dependencies:
+    moment "2.24.0"
+    react-native-month "1.0.3"
+
 react-native-calendars@^1.315.0:
   version "1.315.0"
   resolved "https://registry.yarnpkg.com/react-native-calendars/-/react-native-calendars-1.315.0.tgz#776c065f767ab0b4dced28eb0fc64b3ba439dd06"
@@ -4625,6 +4638,11 @@ react-native-iphone-x-helper@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.1.tgz#645e2ffbbb49e80844bb4cbbe34a126fda1e6772"
   integrity sha512-/VbpIEp8tSNNHIvstuA3Swx610whci1Zpc9mqNkqn14DkMbw+ORviln2u0XyHG1kPvvwTNGZY6QpeFwxYaSdbQ==
+
+react-native-month@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-month/-/react-native-month-1.0.3.tgz#76738fd77f8abe704fa5312f4ad0350822f0c309"
+  integrity sha512-RoD7/ingkugJ1T+bu2Q9+40AKfbhfjuwQwNtkPjxekOWQYXp8PDQvSgPsVcV9KlhwIKyFWroaOfyBp1XgvjaDw==
 
 react-native-reanimated@~1.9.0:
   version "1.9.0"

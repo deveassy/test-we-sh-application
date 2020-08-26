@@ -1,3 +1,66 @@
+// import * as React from "react";
+// import { Calendar } from "react-native-calendario";
+// import styled from "styled-components";
+
+// export default function CalendarScreen() {
+//   return (
+//     <Container>
+//       <CalendarContainer>
+//         <Calendar
+//           onChange={(range) => console.log(range)}
+//           minDate={new Date(2020, 1, 1)}
+//           startDate={new Date(2020, 3, 30)}
+//           endDate={new Date(2020, 4, 5)}
+//           theme={{
+//             activeDayColor: {},
+//             monthTitleTextStyle: {
+//               color: "#3282b8",
+//               fontWeight: "400",
+//               fontSize: 16,
+//             },
+//             emptyMonthContainerStyle: {},
+//             emptyMonthTextStyle: {
+//               fontWeight: "200",
+//             },
+//             weekColumnsContainerStyle: {},
+//             weekColumnStyle: {
+//               paddingVertical: 10,
+//             },
+//             weekColumnTextStyle: {
+//               color: "#b6c1cd",
+//               fontSize: 13,
+//             },
+//             nonTouchableDayContainerStyle: {},
+//             nonTouchableDayTextStyle: {},
+//             startDateContainerStyle: {},
+//             endDateContainerStyle: {},
+//             dayContainerStyle: {},
+//             dayTextStyle: {
+//               color: "#2d4150",
+//               fontWeight: "200",
+//               fontSize: 15,
+//             },
+//             dayOutOfRangeContainerStyle: {},
+//             dayOutOfRangeTextStyle: {},
+//             todayContainerStyle: {},
+//             todayTextStyle: {
+//               color: "#3282b8",
+//               fontWeight: "300",
+//             },
+//             activeDayContainerStyle: {
+//               backgroundColor: "#6d95da",
+//             },
+//             activeDayTextStyle: {
+//               color: "white",
+//             },
+//             nonTouchableLastMonthDayTextStyle: {},
+//           }}
+//         />
+//       </CalendarContainer>
+//     </Container>
+//   );
+// }
+
 import * as React from "react";
 import styled from "styled-components";
 import {
@@ -52,9 +115,9 @@ LocaleConfig.locales["en"] = {
 
 LocaleConfig.defaultLocale = "en";
 
-function Arrow() {
-  return <AntDesign name="right" size={15} color="skyblue" />;
-}
+// function Arrow() {
+//   return <AntDesign name="right" size={15} color="skyblue" />;
+// }
 
 export default function CalendarScreen() {
   return (
@@ -74,8 +137,14 @@ export default function CalendarScreen() {
           onMonthChange={(month) => {
             console.log("month changed", month);
           }}
-          hideArrows={true}
-          renderArrow={(direction) => <Arrow />}
+          hideArrows={false}
+          renderArrow={(direction) =>
+            direction === "left" ? (
+              <AntDesign name="left" size={20} color="#50cebb" />
+            ) : (
+              <AntDesign name="right" size={20} color="#50cebb" />
+            )
+          }
           hideExtraDays={false}
           disableMonthChange={true}
           firstDay={7}
@@ -128,9 +197,11 @@ const Container = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
+  background-color: #fff;
 `;
 
 const CalendarContainer = styled.View`
   flex: 1;
-  padding-top: 80px;
+  width: 100%;
+  padding-top: 100px;
 `;
