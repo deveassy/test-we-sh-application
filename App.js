@@ -11,6 +11,7 @@ import AlbumScreen from "./components/Album";
 import CalendarScreen from "./components/Calendar";
 import WishListScreen from "./components/WishList";
 import LetterScreen from "./components/Letter";
+import ScheduleScreen from "./components/Schedule";
 
 function DetailsScreen() {
   return (
@@ -38,10 +39,6 @@ function MainStackScreen() {
   );
 }
 
-// const Stack = createStackNavigator();
-
-// function
-
 const AlbumStack = createStackNavigator();
 
 function AlbumStackScreen() {
@@ -58,7 +55,6 @@ function AlbumStackScreen() {
       }}
     >
       <AlbumStack.Screen name="Album" component={AlbumScreen} />
-      <AlbumStack.Screen name="Details" component={DetailsScreen} />
     </AlbumStack.Navigator>
   );
 }
@@ -79,7 +75,7 @@ function CalendarStackScreen() {
       }}
     >
       <CalendarStack.Screen name="Calendar" component={CalendarScreen} />
-      <MainStack.Screen name="Details" component={DetailsScreen} />
+      <CalendarStack.Screen name="Schedule" component={ScheduleScreen} />
     </CalendarStack.Navigator>
   );
 }
@@ -104,7 +100,7 @@ function WishListStackScreen() {
         options={{ title: "Wish List" }}
         component={WishListScreen}
       />
-      <MainStack.Screen name="Details" component={DetailsScreen} />
+      <WishListStack.Screen name="Details" component={DetailsScreen} />
     </WishListStack.Navigator>
   );
 }
