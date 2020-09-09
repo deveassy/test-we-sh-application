@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+// import FastImage from "react-native-fast-image";
 import { FontAwesome } from "@expo/vector-icons";
 
 export default function MainScreen() {
@@ -18,7 +19,10 @@ export default function MainScreen() {
         <MainText>{differenceData}</MainText>
       </DdayContainer>
       <PictureContainer>
-        <OurPicture source={require("../assets/ours.png")} />
+        <OurPicture
+          // style={{ width: 380, height: 380, opacity: 0.5 }}
+          source={require("../assets/ours.png")}
+        />
       </PictureContainer>
     </Container>
   );
