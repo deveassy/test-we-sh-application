@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { View, Text } from "react-native";
 import { Calendar, LocaleConfig, Agenda } from "react-native-calendars";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -54,7 +55,7 @@ export default function CalendarScreen({ navigation }) {
   return (
     <Container>
       <CalendarContainer>
-        <Calendar
+        {/* <Calendar
           current={"2020-08-24"}
           minDate={"2020-01-01"}
           maxDate={"2020-12-31"}
@@ -94,29 +95,38 @@ export default function CalendarScreen({ navigation }) {
             },
             "2020-08-17": { marked: true },
             "2020-08-18": { marked: true, dotColor: "red", activeOpacity: 0 },
-            // "2020-08-19": { disabled: true, disableTouchEvent: true },
           }}
-        />
+        /> */}
         <Agenda
           items={state.items}
           loadItemsForMonth={loadItems}
-          selected={"2017-05-16"}
+          selected={"2020-09-05"}
           renderItem={renderItem}
           renderEmptyDate={renderEmptyDate}
           rowHasChanged={rowHasChanged}
-          // markingType={'period'}
-          // markedDates={{
-          //    '2017-05-08': {textColor: '#666'},
-          //    '2017-05-09': {textColor: '#666'},
-          //    '2017-05-14': {startingDay: true, endingDay: true, color: 'blue'},
-          //    '2017-05-21': {startingDay: true, color: 'blue'},
-          //    '2017-05-22': {endingDay: true, color: 'gray'},
-          //    '2017-05-24': {startingDay: true, color: 'gray'},
-          //    '2017-05-25': {color: 'gray'},
-          //    '2017-05-26': {endingDay: true, color: 'gray'}}}
-          // monthFormat={'yyyy'}
-          // theme={{calendarBackground: 'red', agendaKnobColor: 'green'}}
-          //renderDay={(day, item) => (<Text>{day ? day.day: 'item'}</Text>)}
+          markingType={"period"}
+          markedDates={{
+            "2020-09-08": { textColor: "#666" },
+            "2020-09-09": { textColor: "#666" },
+            "2020-09-14": {
+              startingDay: true,
+              endingDay: true,
+              color: "orange",
+            },
+            "2020-09-24": { startingDay: true, color: "#91d18b" },
+            "2020-09-25": { color: "#91d18b" },
+            "2020-09-26": { endingDay: true, color: "#91d18b" },
+          }}
+          monthFormat={"yyyy. MM"}
+          theme={{ calendarBackground: "#fff", agendaKnobColor: "skyblue" }}
+          renderDay={(day, item) => <Text>{day ? day.day : "item"}</Text>}
+          onDayPress={(day) => {
+            // alert("selected day", day);
+            navigation.navigate("Schedule");
+          }}
+          // onDayLongPress={() => {
+          //   navigation.navigate("Schedule");
+          // }}
         />
         <Date>일정들이 정리되서 나왔으면 좋겠는데..</Date>
       </CalendarContainer>
@@ -154,7 +164,8 @@ function loadItems(day) {
 
 function renderItem(item) {
   return (
-    <View style={[styles.item, { height: item.height }]}>
+    // <View style={[styles.item, { height: item.height }]}>
+    <View style={{ height: item.height }}>
       <Text>{item.name}</Text>
     </View>
   );
@@ -162,8 +173,9 @@ function renderItem(item) {
 
 function renderEmptyDate() {
   return (
-    <View style={styles.emptyDate}>
-      <Text>This is empty date!</Text>
+    // <View style={styles.emptyDate}>
+    <View>
+      <Text></Text>
     </View>
   );
 }
@@ -173,7 +185,7 @@ function rowHasChanged(r1, r2) {
 }
 
 function timeToString(time) {
-  const date = new Date(time);
+  const date = new window.Date(time);
   return date.toISOString().split("T")[0];
 }
 
