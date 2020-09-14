@@ -106,29 +106,28 @@ export default function CalendarScreen({ navigation }) {
           rowHasChanged={rowHasChanged}
           markingType={"period"}
           markedDates={{
-            "2020-09-08": { textColor: "#666" },
-            "2020-09-09": { textColor: "#666" },
-            "2020-09-14": {
-              startingDay: true,
-              endingDay: true,
-              color: "orange",
+            "2020-09-03": {
+              marked: true,
+              dotColor: "orange",
             },
-            "2020-09-24": { startingDay: true, color: "#91d18b" },
-            "2020-09-25": { color: "#91d18b" },
-            "2020-09-26": { endingDay: true, color: "#91d18b" },
+            "2020-09-30": { startingDay: true, color: "#91d18b" },
+            "2020-10-01": { color: "#91d18b" },
+            "2020-10-02": { endingDay: true, color: "#91d18b" },
           }}
           monthFormat={"yyyy. MM"}
-          theme={{ calendarBackground: "#fff", agendaKnobColor: "skyblue" }}
-          renderDay={(day, item) => <Text>{day ? day.day : "item"}</Text>}
-          onDayPress={(day) => {
-            // alert("selected day", day);
-            navigation.navigate("Schedule");
+          theme={{
+            calendarBackground: "#fff",
+            agendaKnobColor: "skyblue",
+            // agendaTodayColor: "blue",
+            // agendaDayTextColor: "yellow",
           }}
-          // onDayLongPress={() => {
-          //   navigation.navigate("Schedule");
-          // }}
+          renderDay={(day, item) => (
+            <AgendaDay>
+              {day ? day.day : null}
+              <DayName>{day ? "일" : null}</DayName>
+            </AgendaDay>
+          )}
         />
-        <Date>일정들이 정리되서 나왔으면 좋겠는데..</Date>
       </CalendarContainer>
     </Container>
   );
@@ -144,7 +143,7 @@ function loadItems(day) {
         const numItems = Math.floor(Math.random() * 5);
         for (let j = 0; j < numItems; j++) {
           state.items[strTime].push({
-            name: "Item for " + strTime,
+            name: strTime + "일정",
             height: Math.max(50, Math.floor(Math.random() * 150)),
           });
         }
@@ -164,19 +163,17 @@ function loadItems(day) {
 
 function renderItem(item) {
   return (
-    // <View style={[styles.item, { height: item.height }]}>
-    <View style={{ height: item.height }}>
-      <Text>{item.name}</Text>
-    </View>
+    <ItemView>
+      <ItemText>{item.name}</ItemText>
+    </ItemView>
   );
 }
 
 function renderEmptyDate() {
   return (
-    // <View style={styles.emptyDate}>
-    <View>
-      <Text></Text>
-    </View>
+    <ItemView>
+      <ItemText>EMPTY!</ItemText>
+    </ItemView>
   );
 }
 
@@ -189,19 +186,42 @@ function timeToString(time) {
   return date.toISOString().split("T")[0];
 }
 
+// component style
 const Container = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
   background-color: #fff;
 `;
-
 const CalendarContainer = styled.View`
   flex: 1;
   width: 100%;
 `;
 
-const Date = styled.Text`
-  margin: 10px;
-  font-size: 20px;
+const AgendaDay = styled.Text`
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  padding: 0 5px 0 10px;
+  color: #888;
+  font-size: 32px;
+  background-color: #d6e0f0;
+`;
+
+const DayName = styled.Text`
+  color: #888;
+  font-size: 15px;
+`;
+
+const ItemView = styled.View`
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  border: 1px solid #999;
+  border-top-width: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+`;
+const ItemText = styled.Text`
+  font-size: 15px;
 `;

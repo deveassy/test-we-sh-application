@@ -10,7 +10,6 @@ import MainScreen from "./components/Main";
 import AlbumScreen from "./components/Album";
 import CalendarScreen from "./components/Calendar";
 import WishListScreen from "./components/WishList";
-import LetterScreen from "./components/Letter";
 import ScheduleScreen from "./components/Schedule";
 
 function DetailsScreen() {
@@ -105,31 +104,6 @@ function WishListStackScreen() {
   );
 }
 
-const LetterStack = createStackNavigator();
-
-function LetterStackScreen() {
-  return (
-    <LetterStack.Navigator
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: "#93b5e1",
-        },
-        headerTintColor: "#fff",
-        headerTitleStyle: {
-          fontWeight: "bold",
-        },
-      }}
-    >
-      <LetterStack.Screen
-        name="Letter"
-        options={{ title: "Love Letter" }}
-        component={LetterScreen}
-      />
-      <MainStack.Screen name="Details" component={DetailsScreen} />
-    </LetterStack.Navigator>
-  );
-}
-
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -147,8 +121,6 @@ export default function App() {
               iconName = focused ? "md-calendar" : "ios-calendar";
             } else if (route.name === "WishList") {
               iconName = focused ? "ios-star" : "ios-star-outline";
-            } else if (route.name === "Letter") {
-              iconName = focused ? "ios-mail-open" : "ios-mail";
             }
             return <Ionicons name={iconName} size={size} color={color} />;
           },
@@ -162,7 +134,6 @@ export default function App() {
         <Tab.Screen name="Album" component={AlbumStackScreen} />
         <Tab.Screen name="Calendar" component={CalendarStackScreen} />
         <Tab.Screen name="WishList" component={WishListStackScreen} />
-        <Tab.Screen name="Letter" component={LetterStackScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
