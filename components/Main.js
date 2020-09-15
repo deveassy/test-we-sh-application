@@ -41,7 +41,7 @@ const DdayContainer = styled.View`
   position: absolute;
   top: 10px;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 50px;
 `;
 const MainText = styled.Text`
   margin-top: -5px;
@@ -53,7 +53,7 @@ const MainText = styled.Text`
 const PictureContainer = styled.View`
   align-items: center;
   justify-content: center;
-  margin: 72px 0 0;
+  margin: 140px 0 0;
 `;
 const OurPicture = styled.Image`
   width: 380px;

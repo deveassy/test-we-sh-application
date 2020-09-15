@@ -27,13 +27,10 @@ function MainStackScreen() {
   return (
     <MainStack.Navigator
       screenOptions={{
-        headerStyle: {
-          backgroundColor: "transparent",
-        },
-        headerTintColor: "transparent",
+        headerShown: false,
       }}
     >
-      <MainStack.Screen name="Main" component={MainScreen} />
+      <MainStack.Screen name="WESH" component={MainScreen} />
     </MainStack.Navigator>
   );
 }
@@ -113,7 +110,7 @@ export default function App() {
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
-            if (route.name === "Main") {
+            if (route.name === "WESH") {
               iconName = focused ? "ios-heart" : "ios-heart-empty";
             } else if (route.name === "Album") {
               iconName = focused ? "md-images" : "md-images";
@@ -130,7 +127,7 @@ export default function App() {
           inactiveTintColor: "#d9c6a5",
         }}
       >
-        <Tab.Screen name="Main" component={MainStackScreen} />
+        <Tab.Screen name="WESH" component={MainStackScreen} />
         <Tab.Screen name="Album" component={AlbumStackScreen} />
         <Tab.Screen name="Calendar" component={CalendarStackScreen} />
         <Tab.Screen name="WishList" component={WishListStackScreen} />

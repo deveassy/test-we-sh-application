@@ -122,10 +122,10 @@ export default function CalendarScreen({ navigation }) {
             // agendaDayTextColor: "yellow",
           }}
           renderDay={(day, item) => (
-            <AgendaDay>
-              {day ? day.day : null}
+            <AgendaDayConatainer>
+              <AgendaDay>{day ? day.day : null}</AgendaDay>
               <DayName>{day ? "일" : null}</DayName>
-            </AgendaDay>
+            </AgendaDayConatainer>
           )}
         />
       </CalendarContainer>
@@ -198,29 +198,31 @@ const CalendarContainer = styled.View`
   width: 100%;
 `;
 
-const AgendaDay = styled.Text`
+const AgendaDayConatainer = styled.View`
   align-items: center;
   justify-content: center;
-  width: 70px;
-  padding: 0 5px 0 10px;
-  color: #888;
+  flex-direction: row;
+  width: 75px;
+`;
+
+const AgendaDay = styled.Text`
+  color: #84a9ac;
   font-size: 32px;
-  background-color: #d6e0f0;
+  text-align: center;
 `;
 
 const DayName = styled.Text`
-  color: #888;
+  margin-top: 10px;
+  color: #84a9ac;
   font-size: 15px;
 `;
 
 const ItemView = styled.View`
   align-items: center;
   justify-content: center;
-  height: 50px;
-  border: 1px solid #999;
-  border-top-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
+  height: 70px;
+  margin: 10px 0;
+  background-color: #fff;
 `;
 const ItemText = styled.Text`
   font-size: 15px;
