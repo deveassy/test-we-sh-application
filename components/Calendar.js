@@ -55,7 +55,7 @@ export default function CalendarScreen({ navigation }) {
   return (
     <Container>
       <CalendarContainer>
-        {/* <Calendar
+        <Calendar
           current={"2020-08-24"}
           minDate={"2020-01-01"}
           maxDate={"2020-12-31"}
@@ -96,8 +96,22 @@ export default function CalendarScreen({ navigation }) {
             "2020-08-17": { marked: true },
             "2020-08-18": { marked: true, dotColor: "red", activeOpacity: 0 },
           }}
-        /> */}
-        <Agenda
+          items={state.items}
+          // loadItemsForMonth={loadItems}
+          renderItem={renderItem}
+          // renderEmptyDate={renderEmptyDate}
+          rowHasChanged={rowHasChanged}
+          renderDay={(day, item) => (
+            <AgendaDayConatainer>
+              <AgendaDay>{day ? day.day : null}</AgendaDay>
+              <DayName>{day ? "일" : null}</DayName>
+            </AgendaDayConatainer>
+          )}
+        />
+        <DateView></DateView>
+        <DateView></DateView>
+        <DateView></DateView>
+        {/* <Agenda
           items={state.items}
           loadItemsForMonth={loadItems}
           selected={"2020-09-05"}
@@ -117,9 +131,7 @@ export default function CalendarScreen({ navigation }) {
           monthFormat={"yyyy. MM"}
           theme={{
             calendarBackground: "#fff",
-            agendaKnobColor: "skyblue",
-            // agendaTodayColor: "blue",
-            // agendaDayTextColor: "yellow",
+            agendaKnobColor: "#006a71",
           }}
           renderDay={(day, item) => (
             <AgendaDayConatainer>
@@ -127,7 +139,7 @@ export default function CalendarScreen({ navigation }) {
               <DayName>{day ? "일" : null}</DayName>
             </AgendaDayConatainer>
           )}
-        />
+        /> */}
       </CalendarContainer>
     </Container>
   );
@@ -226,4 +238,13 @@ const ItemView = styled.View`
 `;
 const ItemText = styled.Text`
   font-size: 15px;
+`;
+
+const DateView = styled.View`
+  width: 320px;
+  height: 50px;
+  margin: 12px 0 0 27px;
+  border: transparent;
+  border-radius: 20px;
+  background-color: green;
 `;

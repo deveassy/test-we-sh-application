@@ -42,11 +42,12 @@ function AlbumStackScreen() {
     <AlbumStack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: "#93b5e1",
+          backgroundColor: "#10375c",
         },
         headerTintColor: "#fff",
         headerTitleStyle: {
           fontWeight: "bold",
+          fontSize: 23,
         },
       }}
     >
@@ -62,11 +63,12 @@ function CalendarStackScreen() {
     <CalendarStack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: "#93b5e1",
+          backgroundColor: "#006a71",
         },
         headerTintColor: "#fff",
         headerTitleStyle: {
           fontWeight: "bold",
+          fontSize: 23,
         },
       }}
     >
@@ -83,11 +85,12 @@ function WishListStackScreen() {
     <WishListStack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: "#93b5e1",
+          backgroundColor: "#c9485b",
         },
         headerTintColor: "#fff",
         headerTitleStyle: {
           fontWeight: "bold",
+          fontSize: 23,
         },
       }}
     >
