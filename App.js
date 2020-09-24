@@ -1,6 +1,6 @@
 import "react-native-gesture-handler";
 import * as React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -15,8 +15,13 @@ import ScheduleScreen from "./components/Schedule";
 function DetailsScreen() {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Details Screen입니다. 세부적인 버튼 구현해야해요.</Text>
+      <Text style={{ fontSize: 30 }}>하동 짚라인</Text>
+      <Text>나혼자산다에서 박나래랑 이시언이 탔던 짚라인!</Text>
       <Ionicons name="ios-sunny" size={30} color="#d54062" />
+      <Image
+        style={{ width: 340, height: 250 }}
+        source={require("./assets/wishlist.jpeg")}
+      />
     </View>
   );
 }
