@@ -52,11 +52,23 @@ export default function CalendarScreen({ navigation }) {
   const [state, setState] = useState({
     items: {},
   });
+  const getToday = () => {
+    const today = new Date();
+
+    const year = String(today.getFullYear());
+    let month = String(today.getMonth() + 1);
+    let day = String(today.getDay());
+
+    month = month.length === 1 ? `0${month}` : month;
+    day = day.length === 1 ? `0${day}` : day;
+
+    return `${year}-${month}-${day}`;
+  };
   return (
     <Container>
       <CalendarContainer>
         <Calendar
-          current={"2020-08-24"}
+          current={getToday()}
           minDate={"2020-01-01"}
           maxDate={"2020-12-31"}
           onDayPress={(day) => {
