@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components/native";
-// import FastImage from "react-native-fast-image";
 import { FontAwesome } from "@expo/vector-icons";
+import photo from "../../../assets/ours.png";
 
 export default function MainScreen() {
   const todayData = new Date();
@@ -21,7 +21,7 @@ export default function MainScreen() {
       <PictureContainer>
         <OurPicture
           // style={{ width: 380, height: 380, opacity: 0.5 }}
-          source={require("../assets/ours.png")}
+          source={photo}
         />
       </PictureContainer>
     </Container>
