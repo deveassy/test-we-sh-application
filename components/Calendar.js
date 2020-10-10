@@ -49,9 +49,7 @@ LocaleConfig.locales["en"] = {
 LocaleConfig.defaultLocale = "en";
 
 export default function CalendarScreen({ navigation }) {
-  const [state, setState] = useState({
-    items: {},
-  });
+  const [state, setState] = useState(null);
   const getCurrent = () => {
     const today = new Date();
 
@@ -69,9 +67,7 @@ export default function CalendarScreen({ navigation }) {
       <CalendarContainer>
         <Calendar
           current={getCurrent()}
-          onDayPress={(day) => {
-            alert("selected day", day);
-          }}
+          onDayPress={(day) => {}}
           onDayLongPress={() => {
             navigation.navigate("Schedule");
           }}
@@ -97,59 +93,16 @@ export default function CalendarScreen({ navigation }) {
           disableArrowLeft={false}
           disableArrowRight={false}
           disableAllTouchEventsForDisabledDays={true}
-          markedDates={{
-            "2020-08-16": {
-              selected: true,
-              marked: true,
-              selectedColor: "skyblue",
-            },
-            "2020-08-17": { marked: true },
-            "2020-08-18": { marked: true, dotColor: "red", activeOpacity: 0 },
-          }}
-          items={state.items}
-          // loadItemsForMonth={loadItems}
           renderItem={renderItem}
-          // renderEmptyDate={renderEmptyDate}
           rowHasChanged={rowHasChanged}
-          renderDay={(day, item) => (
-            <AgendaDayConatainer>
-              <AgendaDay>{day ? day.day : null}</AgendaDay>
-              <DayName>{day ? "일" : null}</DayName>
-            </AgendaDayConatainer>
-          )}
         />
-        <DateView></DateView>
-        <DateView></DateView>
-        <DateView></DateView>
-        {/* <Agenda
-          items={state.items}
-          loadItemsForMonth={loadItems}
-          selected={"2020-09-05"}
-          renderItem={renderItem}
-          renderEmptyDate={renderEmptyDate}
-          rowHasChanged={rowHasChanged}
-          markingType={"period"}
-          markedDates={{
-            "2020-09-03": {
-              marked: true,
-              dotColor: "orange",
-            },
-            "2020-09-30": { startingDay: true, color: "#91d18b" },
-            "2020-10-01": { color: "#91d18b" },
-            "2020-10-02": { endingDay: true, color: "#91d18b" },
-          }}
-          monthFormat={"yyyy. MM"}
-          theme={{
-            calendarBackground: "#fff",
-            agendaKnobColor: "#006a71",
-          }}
-          renderDay={(day, item) => (
-            <AgendaDayConatainer>
-              <AgendaDay>{day ? day.day : null}</AgendaDay>
-              <DayName>{day ? "일" : null}</DayName>
-            </AgendaDayConatainer>
-          )}
-        /> */}
+        {state ? (
+          <React.Fragment>
+            <DateView></DateView>
+            <DateView></DateView>
+            <DateView></DateView>
+          </React.Fragment>
+        ) : null}
       </CalendarContainer>
     </Container>
   );
