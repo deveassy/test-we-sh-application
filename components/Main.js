@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "styled-components";
+import styled from "styled-components/native";
 // import FastImage from "react-native-fast-image";
 import { FontAwesome } from "@expo/vector-icons";
 

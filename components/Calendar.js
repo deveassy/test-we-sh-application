@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled from "styled-components/native";
 import { View, Text } from "react-native";
 import { Calendar, LocaleConfig, Agenda } from "react-native-calendars";
 import { AntDesign } from "@expo/vector-icons";
@@ -49,7 +49,7 @@ LocaleConfig.locales["en"] = {
 LocaleConfig.defaultLocale = "en";
 
 export default function CalendarScreen({ navigation }) {
-  [state, setState] = useState({
+  const [state, setState] = useState({
     items: {},
   });
   return (
