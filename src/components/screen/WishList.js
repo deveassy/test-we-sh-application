@@ -1,119 +1,68 @@
 import * as React from "react";
 import styled from "styled-components/native";
-import { Text, Button, InputText } from "react-native";
-import { AntDesign, Ionicons } from "@expo/vector-icons";
+// import photo from "../../../assets/map.png";
 
 export default function WishListScreen({ navigation }) {
   return (
     <Container>
-      <ListContainer>
-        <Ionicons
-          name="ios-rocket"
-          size={25}
-          style={{ marginLeft: 10, marginRight: 5 }}
-        />
-        <ListItem
-          title="하동 짚라인"
-          onPress={() => navigation.navigate("Details")}
-          color="#b52b65"
-        ></ListItem>
-        <AntDesign
-          name="checkcircleo"
-          size={25}
-          style={{ position: "absolute", right: 10 }}
-        />
-      </ListContainer>
-      <ListContainer>
-        <Ionicons
-          name="ios-cafe"
-          size={25}
-          style={{ marginLeft: 10, marginRight: 5 }}
-        />
-        <ListItem
-          title="장기동 스우스 커피"
-          // onPress={() => navigation.navigate("Details")}
-          color="#6f4a8e"
-        ></ListItem>
-        <AntDesign
-          name="checkcircleo"
-          size={25}
-          style={{ position: "absolute", right: 10 }}
-        />
-      </ListContainer>
-      <ListContainer>
-        <Ionicons
-          name="logo-model-s"
-          size={25}
-          style={{ marginLeft: 10, marginRight: 5 }}
-        />
-        <ListItem
-          title="삼척 씨스포빌 카라반캠핑"
-          // onPress={() => navigation.navigate("Details")}
-          color="#62760c"
-        ></ListItem>
-        <AntDesign
-          name="checkcircleo"
-          size={25}
-          style={{ position: "absolute", right: 10 }}
-        />
-      </ListContainer>
-      <ListContainer>
-        <Ionicons
-          name="md-appstore"
-          size={25}
-          style={{ marginLeft: 10, marginRight: 5 }}
-        />
-        <ListItem
-          title="테넷"
-          // onPress={() => navigation.navigate("Details")}
-          color="#f08a5d"
-        ></ListItem>
-        <AntDesign
-          name="checkcircleo"
-          size={25}
-          style={{ position: "absolute", right: 10 }}
-        />
-      </ListContainer>
-      <ListContainer>
-        <Ionicons
-          name="ios-cafe"
-          size={25}
-          style={{ marginLeft: 10, marginRight: 5 }}
-        />
-        <ListItem
-          title="크리스피도넛 글레이즈드"
-          // onPress={() => navigation.navigate("Details")}
-          color="#3b6978"
-        >
-          <InputText />
-        </ListItem>
-        <AntDesign
-          name="checkcircleo"
-          size={25}
-          style={{ position: "absolute", right: 10 }}
-        />
-      </ListContainer>
+      <Items>
+        <IconContainer>
+          <IconView source={require("../../../assets/map.png")} />
+        </IconContainer>
+        <IconText>가고싶은 장소</IconText>
+      </Items>
+      <Items>
+        <IconContainer>
+          <IconView source={require("../../../assets/food.png")} />
+        </IconContainer>
+        <IconText>맛집/카페</IconText>
+      </Items>
+      <Items>
+        <IconContainer>
+          <IconView source={require("../../../assets/play.png")} />
+        </IconContainer>
+        <IconText>미디어</IconText>
+      </Items>
     </Container>
   );
 }
 
 const Container = styled.View`
-  background-color: #fbecec;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin: 20px;
+  /* width: 350px;
   height: 520px;
-  width: 350px;
-  margin: auto;
+  margin: auto; */
   padding: 20px;
+  background-color: #fbecec;
   border-radius: 20px;
 `;
 
-const ListContainer = styled.View`
-  flex-direction: row;
+const Items = styled.View`
   align-items: center;
-  position: relative;
-  padding: 10px 0;
-  border-bottom-width: 1px;
+  justify-content: center;
+  width: 130px;
+  height: 150px;
+  margin: 0 10px;
+  background-color: orange;
 `;
 
-const ListItem = styled.Button`
-  font-size: 20px;
+const IconContainer = styled.View`
+  width: 50px;
+  height: 50px;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 50%;
+`;
+
+const IconView = styled.Image`
+  width: 50px;
+  height: 50px;
+  padding: 20px;
+`;
+
+const IconText = styled.Text`
+  color: red;
 `;
