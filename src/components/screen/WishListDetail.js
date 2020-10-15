@@ -1,17 +1,41 @@
 import * as React from "react";
-import { View, Text, Image } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import styled from "styled-components/native";
 
 export default function WishListDetailsScreen() {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text style={{ fontSize: 30 }}>하동 짚라인</Text>
-      <Text>나혼자산다에서 박나래랑 이시언이 탔던 짚라인!</Text>
-      <Ionicons name="ios-sunny" size={30} color="#d54062" />
-      <Image
-        style={{ width: 340, height: 250 }}
-        source={require("../../../assets/wishlist.jpeg")}
-      />
-    </View>
+    <Container>
+      <ListContainer>
+        <PhotoZone>
+          <Photo source={require("../../../assets/wishlist.jpeg")} />
+        </PhotoZone>
+        <DiaryZone>하동 짚라인 타러 가기! 꼭 가보쟈</DiaryZone>
+      </ListContainer>
+    </Container>
   );
 }
+
+const Container = styled.View`
+  align-items: center;
+  justify-content: center;
+`;
+
+const ListContainer = styled.View`
+  padding: 10px;
+  border-bottom-width: 1px;
+`;
+
+const PhotoZone = styled.View`
+  width: 250px;
+  height: 200px;
+`;
+
+const Photo = styled.Image`
+  width: 180px;
+  height: 100px;
+`;
+
+const DiaryZone = styled.Text`
+  width: 230px;
+  height: 150px;
+  font-size: 16px;
+`;
